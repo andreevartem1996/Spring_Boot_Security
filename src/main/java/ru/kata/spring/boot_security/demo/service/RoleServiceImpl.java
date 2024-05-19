@@ -9,7 +9,6 @@ import ru.kata.spring.boot_security.demo.model.Role;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true)
 public class RoleServiceImpl implements RoleService {
 
     @Autowired
@@ -18,5 +17,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<Role> getRoles() {
         return roleDao.getRoles();
+    }
+
+    @Override
+    public List<Role> getSetOfRoles(List<Role> roles) {
+        return roleDao.getSetOfRoles(roles);
     }
 }

@@ -39,7 +39,7 @@ public class UserController {
 
     @PostMapping(value = "/admin")
     public String addNewUser(@ModelAttribute("new_user") User user) {
-        user.setRoles(user.getRoles());
+        user.setRoles(roleService.getSetOfRoles(user.getRoles()));
         userService.addUser(user);
         return "redirect:/admin";
     }
